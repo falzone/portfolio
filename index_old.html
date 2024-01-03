@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Portfolio: A.Apostolov</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js"></script>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    
+    <div x-data="{ current: 1 }">
+        <div class="flex overflow-hidden border-b-2">
+            <button class="px-4 py-2 w-full" x-on:click="current = 1"
+                x-bind:class="{ 'text-white bg-blue-600': current === 1 }">First Tab</button>
+            <button class="px-4 py-2 w-full" x-on:click="current = 2"
+                x-bind:class="{ 'text-white bg-blue-600': current === 2 }">Second Tab</button>
+            <button class="px-4 py-2 w-full" x-on:click="current = 3"
+                x-bind:class="{ 'text-white bg-blue-600': current === 3 }">Third Tab</button>
+        </div>
+        <div x-show="current === 1" class="p-3 text-center mt-6">
+            <p>First Tab Content</p>
+        </div>
+        <div x-show="current === 2" class="p-3 text-center mt-6">
+            <p>Second Tab Content</p>
+        </div>
+        <div x-show="current === 3" class="p-3 text-center mt-6">
+            <p>Third Tab Content</p>
+        </div>
+    </div>
+
+    <nav>
+        <ul class="h-20 grid grid-cols-4 gap-4 content-center items-center px-4">
+            <li><a href="#" class="block bg-gray-200 hover:bg-gray-100 transition duration-300 p-3">All</a></li>
+            <li><a href="#" class="block bg-gray-200 hover:bg-gray-100 transition duration-300 p-3">English</a></li>
+            <li><a href="#" class="block bg-gray-200 hover:bg-gray-100 transition duration-300 p-3">E-shops</a></li>
+            <li><a href="#" class="block bg-gray-200 hover:bg-gray-100 transition duration-300 p-3">Municipalities</a></li>
+        </ul>
+    </nav>
+
+    <div class="grid grid-cols-2 gap-4">
+        <aside class="px-10">
+            <h2 class="text-xl mb-3">Recent projects</h2>
+            
+            <ol class="list-decimal mb-10">
+                <li>gaminghalls.palmsbet.com</li>
+                <li>visitburgas.org - <label class="red">inactive</label></li>
+                <li>geoton.com</li>
+                <li>ombudsman.starazagora.bg</li>
+                <li>zara.bg</li>
+                <li>asenovgrad.bg</li>
+                <li>zonazagore.com</li>
+                <li>invest.burgas.bg</li>
+                <li>pixelhunters.com</li>
+                <li>ct-interactive.com - <label class="yellow">changed</label></li>
+                <li>autoburgas.com</li>
+                <li>oreshaka-bg.com</li>
+                <li>dimitrovgrad.bg</li>
+                <li>kremona.com</li>
+                <li>lemurbooks.com</li>
+                <li>gotoburgas.com - front-end refresh</li>
+                <li>troyan.bg</li>
+                <li>imoti.burgas.bg</li>
+                <li>kidz.bg</li>
+                <li>szprevozi.com</li>
+                <li>blue-growth.com</li>
+                <li>nksoftware.net/bg/eshops - landing page</li>
+                <li>mbalburgas.com</li>
+                <li>haskovo.bg</li>
+                <li>new.devamaria.com</li>
+                <li>invest.starazagora.bg/bg/work - landing page</li>
+                <li>creato.gifts</li>
+            </ol>
+
+            <h2 class="text-xl mb-3">Pretty old projects</h2>
+
+            <ul>
+                <li>Old portfolio</li>
+                <li>Uni project - porfolio</li>
+            </ul>
+        </aside>
+
+        <section>
+            <div class="tab-content">
+                <h1>Hello,</h1>
+                <p>my name is Apostol Apostolov. I am web developer.</p>
+                <p>This page is a demonstration of what I have come across so far.</p>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
