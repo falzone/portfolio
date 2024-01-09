@@ -14,88 +14,100 @@
 </head>
 
 <body>
+    <div x-data="{ projects: [] }" x-init="
+        fetch('https://www.googleapis.com/books/v1/volumes?q=Alpine')
+        .then(res => res.json())
+        .then(res => {
+            projects = res.items.map(item => item.volumeInfo)
+        })">
 
-    <div x-data="{ current: 1 }">
-        <nav class="flex overflow-hidden border-b-2">
-            <button class="px-4 py-2 w-full" x-on:click="current = 1"
-                x-bind:class="{ 'text-white bg-blue-600': current === 1 }"><ion-icon name="accessibility-outline"></ion-icon> About</button>
-            <button class="px-4 py-2 w-full" x-on:click="current = 2"
-                x-bind:class="{ 'text-white bg-blue-600': current === 2 }">E-shops</button>
-            <button class="px-4 py-2 w-full" x-on:click="current = 3"
-                x-bind:class="{ 'text-white bg-blue-600': current === 3 }">Municipalities</button>
-
-            <button class="px-4 py-2 w-full" x-on:click="current = 4"
-                x-bind:class="{ 'text-white bg-blue-600': current === 4 }">Other/Small projects</button>
-        </nav>
-        <div x-show="current === 1" class="p-3 max-w-2xl mx-auto mt-6">
-            <h1>Hello,</h1>
-            <p>my name is Apostol Apostolov. I am web developer.</p>
-            <p>This page is a demonstration of what I've come across so far.</p>
-            <p> --- </p>
-            <ul>
-                <li>No fancy subpages</li>
-                <li>Pretty straightforward</li>
-                <li>Links to projects I've worked on</li>
-                <li>Most of websites are still public. If not - there are several screenshots.</li>
-            </ul>
+        <div x-data="{ current: 1 }">
+            <nav class="flex overflow-hidden border-b-2">
+                <button class="px-4 py-2 w-full" x-on:click="current = 1"
+                    x-bind:class="{ 'text-white bg-blue-600': current === 1 }">
+                    <ion-icon name="accessibility-outline"></ion-icon> About</button>
+                <button class="px-4 py-2 w-full" x-on:click="current = 2"
+                    x-bind:class="{ 'text-white bg-blue-600': current === 2 }">E-shops</button>
+                <button class="px-4 py-2 w-full" x-on:click="current = 3"
+                    x-bind:class="{ 'text-white bg-blue-600': current === 3 }">Municipalities</button>
+                <button class="px-4 py-2 w-full" x-on:click="current = 4"
+                    x-bind:class="{ 'text-white bg-blue-600': current === 4 }">Other</button>
+                <button class="px-4 py-2 w-full" x-on:click="current = 5"
+                    x-bind:class="{ 'text-white bg-blue-600': current === 5 }">Small projects</button>
+            </nav>
+            <div x-show="current === 1" class="p-3 max-w-2xl mx-auto my-6">
+                <h1>Hello,</h1>
+                <p>my name is Apostol Apostolov. I am web developer.</p>
+                <p>This page is a demonstration of what I've come across so far.</p>
+                <p> --- </p>
+                <ul>
+                    <li>No fancy subpages, pretty straightforward</li>
+                    <li>Links to projects I've worked on</li>
+                    <li>Most of the websites are still public. If some of them are offline - there are screenshots.</li>
+                </ul>
+            </div>
+            <div x-show="current === 2" class="p-3 text-center my-6">
+                <ul>
+                    <li><a href="https://www.lemurbooks.com">lemurbooks.com (2020)</a></li>
+                    <li><a href="https://www.kidz.bg">kidz.bg (2021)</a></li>
+                    <li><a href="https://creato.gifts">creato.gifts (2023)</a></li>
+                </ul>
+            </div>
+            <div x-show="current === 3" class="p-3 text-center my-6">
+                <ul>
+                    <li><a href="https://www.asenovgrad.bg">asenovgrad.bg (2018)</a></li>
+                    <li><a href="https://www.dimitrovgrad.bg">dimitrovgrad.bg (2019)</a></li>
+                    <li><a href="https://www.troyan.bg">troyan.bg (2020)</a></li>
+                    <li><a href="https://www.haskovo.bg">haskovo.bg (2022)</a></li>
+                </ul>
+            </div>
+            <div x-show="current === 4" class="p-3 text-center my-6">
+                <ul>
+                    <li><a href="https://geoton.com">geoton.com (2018)</a></li>
+                    <li><a href="https://zara.bg/">zara.bg (2018)</a></li>
+                    <li><a href="https://www.zonazagore.com">zonazagore.com (2018)</a></li>
+                    <li><a href="https://invest.burgas.bg">invest.burgas.bg (2018-2019)</a></li>
+                    <li><a href="https://www.pixelhunters.com">pixelhunters.com (2019)</a></li>
+                    <li><a href="https://www.autoburgas.com">autoburgas.com (2019)</a></li>
+                    <li><a href="https://oreshaka-bg.com">oreshaka-bg.com (2019)</a></li>
+                    <li><a href="https://www.imoti.burgas.bg">imoti.burgas.bg (2021)</a></li>
+                    <li><a href="https://mbalburgas.com">mbalburgas.com (2022)</a></li>
+                    <li><a href="https://www.new.devamaria.com">devamaria.com (2023)</a></li>
+                </ul>
+            </div>
+            <div x-show="current === 5" class="p-3 text-center my-6">
+                <ul>
+                    <li><a href="https://gaminghalls.palmsbet.com" target="_blank">gaminghalls.palmsbet.com</a> (2017)
+                    </li>
+                    <li>visitburgas.org (2018) - <label class="red">inactive</label></li>
+                    <li><a href="https://ombudsman.starazagora.bg">ombudsman.starazagora.bg (2018)</a></li>
+                    <li>ct-interactive.com (2019) - <label class="yellow">changed</label></li>
+                    <li><a href="https://www.kremona.com">kremona.com (2020)</a></li>
+                    <li><a href="https://www.gotoburgas.com">gotoburgas.com (2020)</a> - front-end refresh</li>
+                    <li><a href="https://www.szprevozi.com">szprevozi.com (2021)</a></li>
+                    <li><a href="https://blue-growth.com">blue-growth.com (2021)</a></li>
+                    <li><a href="https://www.nksoftware.net/bg/eshops">nksoftware.net/bg/eshops (2022)</a> - landing
+                        page</li>
+                    <li><a href="https://invest.starazagora.bg/bg/work">invest.starazagora.bg/bg/work</a> (2023) -
+                        landing page</li>
+                </ul>
+            </div>
         </div>
-        <div x-show="current === 2" class="p-3 text-center mt-6">
-            <ul>
-                <li><a href="https://www.lemurbooks.com">lemurbooks.com (2020)</a></li>
-                <li><a href="https://www.kidz.bg">kidz.bg (2021)</a></li>
-                <li><a href="https://creato.gifts">creato.gifts (2023)</a></li>
-            </ul>
+
+        <div class="bg-gray-100 grid grid-cols-2 gap-4 py-10">
+            <aside class="px-10">
+
+                <h2 class="text-xl mb-3">Pretty old projects</h2>
+
+                <ul>
+                    <li class="text-sm text-gray-500 truncate">Old portfolio</li>
+                    <li class="text-sm text-gray-500 truncate">Uni project - porfolio</li>
+                </ul>
+            </aside>
         </div>
-        <div x-show="current === 3" class="p-3 text-center mt-6">
-            <ul>
-                <li><a href="https://www.asenovgrad.bg">asenovgrad.bg (2018)</a></li>
-                <li><a href="https://www.dimitrovgrad.bg">dimitrovgrad.bg (2019)</a></li>
-                <li><a href="https://www.troyan.bg">troyan.bg (2020)</a></li>
-                <li><a href="https://www.haskovo.bg">haskovo.bg (2022)</a></li>
-            </ul>
-        </div>
-        <div x-show="current === 4" class="p-3 text-center mt-6">
-            <ul>
-                <li><a href="https://gaminghalls.palmsbet.com" target="_blank">gaminghalls.palmsbet.com</a> (2017)</li>
-                <li>visitburgas.org (2018) - <label class="red">inactive</label></li>
-                <li><a href="https://geoton.com">geoton.com (2018)</a></li>
-                <li><a href="https://ombudsman.starazagora.bg">ombudsman.starazagora.bg (2018)</a></li>
-                <li><a href="https://zara.bg/">zara.bg (2018)</a></li>
-                <li><a href="https://www.zonazagore.com">zonazagore.com (2018)</a></li>
-                <li><a href="https://invest.burgas.bg">invest.burgas.bg</a></li>
-                <li><a href="https://www.pixelhunters.com">pixelhunters.com (2019)</a></li>
-                <li>ct-interactive.com (2019) - <label class="yellow">changed</label></li>
-                <li><a href="https://www.autoburgas.com">autoburgas.com (2019)</a></li>
-                <li><a href="https://oreshaka-bg.com">oreshaka-bg.com (2019)</a></li>
-                <li><a href="https://www.kremona.com">kremona.com (2020)</a></li>
-                <li><a href="https://www.gotoburgas.com">gotoburgas.com (2020)</a> - front-end refresh</li>
-                <li><a href="https://www.imoti.burgas.bg">imoti.burgas.bg (2021)</a></li>
-                <li><a href="https://www.szprevozi.com">szprevozi.com (2021)</a></li>
-                <li><a href="https://blue-growth.com">blue-growth.com (2021)</a></li>
-                <li><a href="https://www.nksoftware.net/bg/eshops">nksoftware.net/bg/eshops (2022)</a> - landing page
-                </li>
-                <li><a href="https://mbalburgas.com">mbalburgas.com (2022)</a></li>
-                <li><a href="https://www.new.devamaria.com">devamaria.com (2023)</a></li>
-                <li><a href="https://invest.starazagora.bg/bg/work">invest.starazagora.bg/bg/work</a> (2023) - landing
-                    page</li>
-            </ul>
-        </div>
-    </div>
 
-    <div class="grid grid-cols-2 gap-4">
-        <aside class="px-10">
-
-            <h2 class="text-xl mb-3">Pretty old projects</h2>
-
-            <ul>
-                <li>Old portfolio</li>
-                <li>Uni project - porfolio</li>
-            </ul>
-        </aside>
-    </div>
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
