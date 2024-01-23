@@ -2,112 +2,348 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Portfolio: A.Apostolov</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="stylesheet" href="main.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js"></script>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Portfolio: A.Apostolov</title>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+	<link rel="stylesheet" href="main.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js"></script>
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
-    <script src="main.js" defer></script>
+	<script src="main.js" defer></script>
 </head>
 
 <body>
-    <div x-data="{ projects: [] }" x-init="
-        fetch('https://www.googleapis.com/books/v1/volumes?q=Alpine')
-        .then(res => res.json())
-        .then(res => {
-            projects = res.items.map(item => item.volumeInfo)
-        })">
+	<div x-data="{ current: 1 }">
+		<nav class="flex overflow-hidden border-b-2">
+			<button class="px-4 py-2 w-full text-gray-500" x-on:click="current = 1"
+				x-bind:class="{ 'bg-gray-100 text-gray-700': current === 1 }">
+				<ion-icon name="accessibility-outline"></ion-icon> About</button>
+			<button class="px-4 py-2 w-full text-gray-500" x-on:click="current = 2"
+				x-bind:class="{ 'bg-gray-100 text-gray-700': current === 2 }">E-shops</button>
+			<button class="px-4 py-2 w-full text-gray-500" x-on:click="current = 3"
+				x-bind:class="{ 'bg-gray-100 text-gray-700': current === 3 }">Municipalities</button>
+			<button class="px-4 py-2 w-full text-gray-500" x-on:click="current = 4"
+				x-bind:class="{ 'bg-gray-100 text-gray-700': current === 4 }">Other</button>
+			<button class="px-4 py-2 w-full text-gray-500" x-on:click="current = 5"
+				x-bind:class="{ 'bg-gray-100 text-gray-700': current === 5 }">Small projects</button>
+		</nav>
 
-        <div x-data="{ current: 1 }">
-            <nav class="flex overflow-hidden border-b-2">
-                <button class="px-4 py-2 w-full" x-on:click="current = 1"
-                    x-bind:class="{ 'text-white bg-blue-600': current === 1 }">
-                    <ion-icon name="accessibility-outline"></ion-icon> About</button>
-                <button class="px-4 py-2 w-full" x-on:click="current = 2"
-                    x-bind:class="{ 'text-white bg-blue-600': current === 2 }">E-shops</button>
-                <button class="px-4 py-2 w-full" x-on:click="current = 3"
-                    x-bind:class="{ 'text-white bg-blue-600': current === 3 }">Municipalities</button>
-                <button class="px-4 py-2 w-full" x-on:click="current = 4"
-                    x-bind:class="{ 'text-white bg-blue-600': current === 4 }">Other</button>
-                <button class="px-4 py-2 w-full" x-on:click="current = 5"
-                    x-bind:class="{ 'text-white bg-blue-600': current === 5 }">Small projects</button>
-            </nav>
-            <div x-show="current === 1" class="p-3 max-w-2xl mx-auto my-6">
-                <h1>Hello,</h1>
-                <p>my name is Apostol Apostolov. I am web developer.</p>
-                <p>This page is a demonstration of what I've come across so far.</p>
-                <p> --- </p>
-                <ul>
-                    <li>No fancy subpages, pretty straightforward</li>
-                    <li>Links to projects I've worked on</li>
-                    <li>Most of the websites are still public. If some of them are offline - there are screenshots.</li>
-                </ul>
-            </div>
-            <div x-show="current === 2" class="p-3 text-center my-6">
-                <ul>
-                    <li><a href="https://www.lemurbooks.com">lemurbooks.com (2020)</a></li>
-                    <li><a href="https://www.kidz.bg">kidz.bg (2021)</a></li>
-                    <li><a href="https://creato.gifts">creato.gifts (2023)</a></li>
-                </ul>
-            </div>
-            <div x-show="current === 3" class="p-3 text-center my-6">
-                <ul>
-                    <li><a href="https://www.asenovgrad.bg">asenovgrad.bg (2018)</a></li>
-                    <li><a href="https://www.dimitrovgrad.bg">dimitrovgrad.bg (2019)</a></li>
-                    <li><a href="https://www.troyan.bg">troyan.bg (2020)</a></li>
-                    <li><a href="https://www.haskovo.bg">haskovo.bg (2022)</a></li>
-                </ul>
-            </div>
-            <div x-show="current === 4" class="p-3 text-center my-6">
-                <ul>
-                    <li><a href="https://geoton.com">geoton.com (2018)</a></li>
-                    <li><a href="https://zara.bg/">zara.bg (2018)</a></li>
-                    <li><a href="https://www.zonazagore.com">zonazagore.com (2018)</a></li>
-                    <li><a href="https://invest.burgas.bg">invest.burgas.bg (2018-2019)</a></li>
-                    <li><a href="https://www.pixelhunters.com">pixelhunters.com (2019)</a></li>
-                    <li><a href="https://www.autoburgas.com">autoburgas.com (2019)</a></li>
-                    <li><a href="https://oreshaka-bg.com">oreshaka-bg.com (2019)</a></li>
-                    <li><a href="https://www.imoti.burgas.bg">imoti.burgas.bg (2021)</a></li>
-                    <li><a href="https://mbalburgas.com">mbalburgas.com (2022)</a></li>
-                    <li><a href="https://www.new.devamaria.com">devamaria.com (2023)</a></li>
-                </ul>
-            </div>
-            <div x-show="current === 5" class="p-3 text-center my-6">
-                <ul>
-                    <li><a href="https://gaminghalls.palmsbet.com" target="_blank">gaminghalls.palmsbet.com</a> (2017)
-                    </li>
-                    <li>visitburgas.org (2018) - <label class="red">inactive</label></li>
-                    <li><a href="https://ombudsman.starazagora.bg">ombudsman.starazagora.bg (2018)</a></li>
-                    <li>ct-interactive.com (2019) - <label class="yellow">changed</label></li>
-                    <li><a href="https://www.kremona.com">kremona.com (2020)</a></li>
-                    <li><a href="https://www.gotoburgas.com">gotoburgas.com (2020)</a> - front-end refresh</li>
-                    <li><a href="https://www.szprevozi.com">szprevozi.com (2021)</a></li>
-                    <li><a href="https://blue-growth.com">blue-growth.com (2021)</a></li>
-                    <li><a href="https://www.nksoftware.net/bg/eshops">nksoftware.net/bg/eshops (2022)</a> - landing
-                        page</li>
-                    <li><a href="https://invest.starazagora.bg/bg/work">invest.starazagora.bg/bg/work</a> (2023) -
-                        landing page</li>
-                </ul>
-            </div>
-        </div>
+		<div x-show="current === 1" class="p-6 max-w-2xl mx-auto my-6 shadow-md">
+			<h1>Hello,</h1>
+			<p>my name is Apostol Apostolov. I am web developer.</p>
+			<p>This page is a demonstration of what I've come across so far.</p>
+			<p> --- </p>
+			<ul>
+				<li>No fancy subpages, pretty straightforward</li>
+				<li>Links to projects I've worked on</li>
+				<li>Most of the websites are still public. If some of them are offline - there are screenshots.</li>
+			</ul>
+		</div>
 
-        <div class="bg-gray-100 grid grid-cols-2 gap-4 py-10">
-            <aside class="px-10">
+		<div x-show="current === 2" class="p-3 my-6">
+			<div class="relative overflow-x-auto shadow-md w-min mx-auto">
+				<table class="text-gray-500 dark:text-gray-400">
+					<tbody>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://www.lemurbooks.com">lemurbooks.com</a>
+							</td>
+							<td class="px-6 py-4">
+								2020
+							</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://www.kidz.bg">kidz.bg</a>
+							</td>
+							<td class="px-6 py-4">
+								2021
+							</td>
+						</tr>
+						<tr class="text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://creato.gifts">creato.gifts</a>
+							</td>
+							<td class="px-6 py-4">
+								2023
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 
-                <h2 class="text-xl mb-3">Pretty old projects</h2>
+		</div>
+		<div x-show="current === 3" class="p-3 my-6">
+			<div class="relative overflow-x-auto shadow-md w-min mx-auto">
+				<table class="text-gray-500 dark:text-gray-400">
+					<tbody>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://www.asenovgrad.bg">asenovgrad.bg</a>
+							</td>
+							<td class="px-6 py-4">
+								2018
+							</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://www.dimitrovgrad.bg">dimitrovgrad.bg</a>
+							</td>
+							<td class="px-6 py-4">
+								2019
+							</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://www.troyan.bg">troyan.bg</a>
+							</td>
+							<td class="px-6 py-4">
+								2020
+							</td>
+						</tr>
+						<tr class="text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://www.haskovo.bg">haskovo.bg</a>
+							</td>
+							<td class="px-6 py-4">
+								2022
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div x-show="current === 4" class="p-3 my-6">
+			<div class="relative overflow-x-auto shadow-md w-min mx-auto">
+				<table class="text-gray-500 dark:text-gray-400">
+					<tbody>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://geoton.com">geoton.com</a>
+							</td>
+							<td class="px-6 py-4">
+								2018
+							</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://zara.bg">zara.bg</a>
+							</td>
+							<td class="px-6 py-4">
+								2018
+							</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://www.zonazagore.com">zonazagore.com</a>
+							</td>
+							<td class="px-6 py-4">
+								2018
+							</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://invest.burgas.bg">invest.burgas.bg</a>
+							</td>
+							<td class="px-6 py-4">
+								2019
+							</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://www.pixelhunters.com">pixelhunters.com</a>
+							</td>
+							<td class="px-6 py-4">
+								2019
+							</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://www.autoburgas.com">autoburgas.com</a>
+							</td>
+							<td class="px-6 py-4">
+								2019
+							</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://oreshaka-bg.com">oreshaka-bg.com</a>
+							</td>
+							<td class="px-6 py-4">
+								2019
+							</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://mbalburgas.com">mbalburgas.com</a>
+							</td>
+							<td class="px-6 py-4">
+								2022
+							</td>
+						</tr>
+						<tr class="text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://www.devamaria.com">devamaria.com</a>
+							</td>
+							<td class="px-6 py-4">
+								2023
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div x-show="current === 5" class="p-3 my-6">
+			<div class="relative overflow-x-auto shadow-md w-max mx-auto">
+				<table class="text-gray-500 dark:text-gray-400">
+					<tbody>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://gaminghalls.palmsbet.com">gaminghalls.palmsbet.com</a>
+							</td>
+							<td class="px-6 py-4">
+								2017
+							</td>
+							<td class="px-6 py-4">&nbsp;</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								visitburgas.org
+							</td>
+							<td class="px-6 py-4">
+								2018
+							</td>
+							<td class="px-6 py-4 text-red-400">inactive</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://ombudsman.starazagora.bg">ombudsman.starazagora.bg</a>
+							</td>
+							<td class="px-6 py-4">
+								2018
+							</td>
+							<td class="px-6 py-4">&nbsp;</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								ct-interactive.com
+							</td>
+							<td class="px-6 py-4">
+								2019
+							</td>
+							<td class="px-6 py-4 text-yellow-400">changed</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://www.kremona.com">kremona.com</a>
+							</td>
+							<td class="px-6 py-4">
+								2020
+							</td>
+							<td class="px-6 py-4">&nbsp;</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://www.gotoburgas.com">gotoburgas.com</a>
+							</td>
+							<td class="px-6 py-4">
+								2020
+							</td>
+							<td class="px-6 py-4">front-end refresh</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://www.imoti.burgas.bg">imoti.burgas.bg</a>
+							</td>
+							<td class="px-6 py-4">
+								2021
+							</td>
+							<td class="px-6 py-4">&nbsp;</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://www.szprevozi.com">szprevozi.com</a>
+							</td>
+							<td class="px-6 py-4">
+								2021
+							</td>
+							<td class="px-6 py-4">&nbsp;</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://blue-growth.com">blue-growth.com</a>
+							</td>
+							<td class="px-6 py-4">
+								2021
+							</td>
+							<td class="px-6 py-4">&nbsp;</td>
+						</tr>
+						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://www.nksoftware.net/bg/eshops">nksoftware.net/bg/eshops</a>
+							</td>
+							<td class="px-6 py-4">
+								2022
+							</td>
+							<td class="px-6 py-4">landing page</td>
+						</tr>
+						<tr class="text-left">
+							<td scope="row"
+								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+								<a href="https://invest.starazagora.bg/bg/work">invest.starazagora.bg/bg/work</a>
+							</td>
+							<td class="px-6 py-4">
+								2023
+							</td>
+							<td class="px-6 py-4">landing page</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 
-                <ul>
-                    <li class="text-sm text-gray-500 truncate">Old portfolio</li>
-                    <li class="text-sm text-gray-500 truncate">Uni project - porfolio</li>
-                </ul>
-            </aside>
-        </div>
+	<div class="bg-gray-50 grid grid-cols-2 gap-4 py-10 shadow-md">
+		<aside class="px-10">
 
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+			<h2 class="text-xl mb-3">Pretty old projects</h2>
+
+			<ul>
+				<li class="text-sm text-gray-500 truncate">Old portfolio</li>
+				<li class="text-sm text-gray-500 truncate">Uni project - porfolio</li>
+			</ul>
+		</aside>
+	</div>
+
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
