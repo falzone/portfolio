@@ -15,7 +15,7 @@
 
 <body>
 	<div x-data="{ current: 1 }">
-		<nav class="flex overflow-hidden border-b-2">
+		<nav class="block sm:flex overflow-hidden border-b-2">
 			<button class="px-4 py-2 w-full text-gray-500" x-on:click="current = 1"
 				x-bind:class="{ 'bg-gray-100 text-gray-700': current === 1 }">
 				<ion-icon name="accessibility-outline"></ion-icon> About</button>
@@ -214,7 +214,7 @@
 			<div class="relative overflow-x-auto shadow-md w-max mx-auto">
 				<table class="text-gray-500 dark:text-gray-400">
 					<tbody>
-						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+						<tr class="flex flex-col sm:table-row border-b border-gray-200 dark:border-gray-700 text-left">
 							<td scope="row"
 								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
 								<a href="https://gaminghalls.palmsbet.com">gaminghalls.palmsbet.com</a>
@@ -222,9 +222,9 @@
 							<td class="px-6 py-4">
 								2017
 							</td>
-							<td class="px-6 py-4">&nbsp;</td>
+							<td>&nbsp;</td>
 						</tr>
-						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+						<tr class="flex flex-col sm:table-row border-b border-gray-200 dark:border-gray-700 text-left">
 							<td scope="row"
 								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
 								visitburgas.org
@@ -234,7 +234,7 @@
 							</td>
 							<td class="px-6 py-4 text-red-400">inactive</td>
 						</tr>
-						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+						<tr class="flex flex-col sm:table-row border-b border-gray-200 dark:border-gray-700 text-left">
 							<td scope="row"
 								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
 								<a href="https://ombudsman.starazagora.bg">ombudsman.starazagora.bg</a>
@@ -244,7 +244,7 @@
 							</td>
 							<td class="px-6 py-4">&nbsp;</td>
 						</tr>
-						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+						<tr class="flex flex-col sm:table-row border-b border-gray-200 dark:border-gray-700 text-left">
 							<td scope="row"
 								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
 								ct-interactive.com
@@ -254,7 +254,7 @@
 							</td>
 							<td class="px-6 py-4 text-yellow-400">changed</td>
 						</tr>
-						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+						<tr class="flex flex-col sm:table-row border-b border-gray-200 dark:border-gray-700 text-left">
 							<td scope="row"
 								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
 								<a href="https://www.kremona.com">kremona.com</a>
@@ -264,7 +264,7 @@
 							</td>
 							<td class="px-6 py-4">&nbsp;</td>
 						</tr>
-						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+						<tr class="flex flex-col sm:table-row border-b border-gray-200 dark:border-gray-700 text-left">
 							<td scope="row"
 								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
 								<a href="https://www.gotoburgas.com">gotoburgas.com</a>
@@ -274,7 +274,7 @@
 							</td>
 							<td class="px-6 py-4">front-end refresh</td>
 						</tr>
-						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+						<tr class="flex flex-col sm:table-row border-b border-gray-200 dark:border-gray-700 text-left">
 							<td scope="row"
 								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
 								<a href="https://www.imoti.burgas.bg">imoti.burgas.bg</a>
@@ -284,7 +284,7 @@
 							</td>
 							<td class="px-6 py-4">&nbsp;</td>
 						</tr>
-						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+						<tr class="flex flex-col sm:table-row border-b border-gray-200 dark:border-gray-700 text-left">
 							<td scope="row"
 								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
 								<a href="https://www.szprevozi.com">szprevozi.com</a>
@@ -294,7 +294,7 @@
 							</td>
 							<td class="px-6 py-4">&nbsp;</td>
 						</tr>
-						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+						<tr class="flex flex-col sm:table-row border-b border-gray-200 dark:border-gray-700 text-left">
 							<td scope="row"
 								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
 								<a href="https://blue-growth.com">blue-growth.com</a>
@@ -304,7 +304,7 @@
 							</td>
 							<td class="px-6 py-4">&nbsp;</td>
 						</tr>
-						<tr class="border-b border-gray-200 dark:border-gray-700 text-left">
+						<tr class="flex flex-col sm:table-row border-b border-gray-200 dark:border-gray-700 text-left">
 							<td scope="row"
 								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
 								<a href="https://www.nksoftware.net/bg/eshops">nksoftware.net/bg/eshops</a>
@@ -314,7 +314,7 @@
 							</td>
 							<td class="px-6 py-4">landing page</td>
 						</tr>
-						<tr class="text-left">
+						<tr class="flex flex-col sm:table-row text-left">
 							<td scope="row"
 								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
 								<a href="https://invest.starazagora.bg/bg/work">invest.starazagora.bg/bg/work</a>
