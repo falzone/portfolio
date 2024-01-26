@@ -14,22 +14,30 @@
 </head>
 
 <body>
-	<div x-data="{ current: 1 }">
+	<div x-data="{ tab: window.location.hash ? window.location.hash.substring(1) : 'about' }">
 		<nav class="block sm:flex overflow-hidden border-b-2">
-			<button class="px-4 py-2 w-full text-gray-500" x-on:click="current = 1"
-				x-bind:class="{ 'bg-gray-100 text-gray-700': current === 1 }">
-				<ion-icon name="accessibility-outline"></ion-icon> About</button>
-			<button class="px-4 py-2 w-full text-gray-500" x-on:click="current = 2"
-				x-bind:class="{ 'bg-gray-100 text-gray-700': current === 2 }">E-shops</button>
-			<button class="px-4 py-2 w-full text-gray-500" x-on:click="current = 3"
-				x-bind:class="{ 'bg-gray-100 text-gray-700': current === 3 }">Municipalities</button>
-			<button class="px-4 py-2 w-full text-gray-500" x-on:click="current = 4"
-				x-bind:class="{ 'bg-gray-100 text-gray-700': current === 4 }">Other</button>
-			<button class="px-4 py-2 w-full text-gray-500" x-on:click="current = 5"
-				x-bind:class="{ 'bg-gray-100 text-gray-700': current === 5 }">Small projects</button>
+			<button class="flex justify-center items-center px-4 py-2 w-full text-gray-500"
+				:class="{ 'bg-gray-100 text-gray-700': tab === 'about' }"
+				@click="tab = 'about'; window.location.hash = 'about'"><ion-icon name="person-outline"
+					class="mr-1"></ion-icon> About</button>
+			<button class="flex justify-center items-center px-4 py-2 w-full text-gray-500"
+				:class="{ 'bg-gray-100 text-gray-700': tab === 'eshops' }"
+				@click="tab = 'eshops'; window.location.hash = 'eshops'"><ion-icon name="extension-puzzle-outline"
+					class="mr-1"></ion-icon> E-shops</button>
+			<button class="flex justify-center items-center px-4 py-2 w-full text-gray-500"
+				:class="{ 'bg-gray-100 text-gray-700': tab === 'muns' }"
+				@click="tab = 'muns'; window.location.hash = 'muns'"><ion-icon name="business-outline"
+					class="mr-1"></ion-icon> Municipalities</button>
+			<button class="flex justify-center items-center px-4 py-2 w-full text-gray-500"
+				:class="{ 'bg-gray-100 text-gray-700': tab === 'other' }"
+				@click="tab = 'other'; window.location.hash = 'other'"><ion-icon name="library-outline"
+					class="mr-1"></ion-icon> Other</button>
+			<button class="flex justify-center items-center px-4 py-2 w-full text-gray-500"
+				:class="{ 'bg-gray-100 text-gray-700': tab === 'smallp' }" @click="tab = 'smallp'; window.location.hash = 'smallp'"><ion-icon name="layers-outline"
+					class="mr-1"></ion-icon> Small projects</button>
 		</nav>
 
-		<div x-show="current === 1" class="p-6 max-w-2xl mx-auto my-6 shadow-md">
+		<div x-show="tab === 'about'" class="p-6 max-w-2xl mx-auto my-6 shadow-md">
 			<h1>Hello,</h1>
 			<p>my name is Apostol Apostolov. I am web developer.</p>
 			<p>This page is a demonstration of what I've come across so far.</p>
@@ -41,7 +49,7 @@
 			</ul>
 		</div>
 
-		<div x-show="current === 2" class="p-3 my-6">
+		<div x-show="tab === 'eshops'" class="p-3 my-6">
 			<div class="relative overflow-x-auto shadow-md w-min mx-auto">
 				<table class="text-gray-500 dark:text-gray-400">
 					<tbody>
@@ -77,7 +85,7 @@
 			</div>
 
 		</div>
-		<div x-show="current === 3" class="p-3 my-6">
+		<div x-show="tab === 'muns'" class="p-3 my-6">
 			<div class="relative overflow-x-auto shadow-md w-min mx-auto">
 				<table class="text-gray-500 dark:text-gray-400">
 					<tbody>
@@ -121,7 +129,7 @@
 				</table>
 			</div>
 		</div>
-		<div x-show="current === 4" class="p-3 my-6">
+		<div x-show="tab === 'other'" class="p-3 my-6">
 			<div class="relative overflow-x-auto shadow-md w-min mx-auto">
 				<table class="text-gray-500 dark:text-gray-400">
 					<tbody>
@@ -210,7 +218,7 @@
 				</table>
 			</div>
 		</div>
-		<div x-show="current === 5" class="p-3 my-6">
+		<div x-show="tab === 'smallp'" class="p-3 my-6">
 			<div class="relative overflow-x-auto shadow-md w-max mx-auto">
 				<table class="text-gray-500 dark:text-gray-400">
 					<tbody>
@@ -227,7 +235,7 @@
 						<tr class="flex flex-col sm:table-row border-b border-gray-200 dark:border-gray-700 text-left">
 							<td scope="row"
 								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-								visitburgas.org
+								<a href="visitburgas.html">visitburgas.org</a>
 							</td>
 							<td class="px-6 py-4">
 								2018
@@ -247,7 +255,7 @@
 						<tr class="flex flex-col sm:table-row border-b border-gray-200 dark:border-gray-700 text-left">
 							<td scope="row"
 								class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-								ct-interactive.com
+								<a href="ct-interactive.html">ct-interactive.com</a>
 							</td>
 							<td class="px-6 py-4">
 								2019
